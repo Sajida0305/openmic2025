@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Mic Night</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6e45e2, #88d3ce);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(0,0,0,0.3);
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.25rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.25rem;
+      font-style: italic;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      border-bottom: 3px solid #88d3ce;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1.5px;
+    }
+    .event-details p {
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+    .schedule-list {
+      list-style: none;
+    }
+    .schedule-list li {
+      font-size: 1.1rem;
+      padding: 0.7rem 1rem;
+      background: rgba(136, 211, 206, 0.2);
+      margin-bottom: 0.7rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #111;
+      box-shadow: inset 2px 2px 8px #c1f0eb, inset -2px -2px 6px #6dbec6;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: rgba(136, 211, 206, 0.15);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      color: #111;
+    }
+    label {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #0a3136;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: inset 2px 2px 6px #a0d8d9, inset -2px -2px 8px #6abac0;
+      resize: vertical;
+      transition: box-shadow 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      box-shadow: inset 2px 2px 10px #76d1ce, inset -2px -2px 12px #4ba3a8;
+    }
+    button {
+      background: #4ba3a8;
+      border: none;
+      padding: 1.1rem 0;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 6px 12px #3c888b;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    button:hover {
+      background: #3c888b;
+      box-shadow: 0 8px 20px #2c5f61;
+    }
+    .thank-you {
+      background-color: #3c888b;
+      color: #e0fff9;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 700;
+      display: none;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      main {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Open Mic Night</h1>
+    <p>Showcase your talent or come enjoy great performances!</p>
+  </header>
+  <main>
+    <section class="event-details" aria-labelledby="details-heading">
+      <h2 id="details-heading">Event Details</h2>
+      <p><strong>When:</strong> Every Friday, 7:30 PM - 10:30 PM</p>
+      <p><strong>Where:</strong> The Art Lounge, 123 Creative Avenue</p>
+      <p>Join us for a night of music, comedy, poetry, and stories. All talent levels welcome!</p>
+    </section>
+    <section class="schedule" aria-labelledby="schedule-heading">
+      <h2 id="schedule-heading">Sample Schedule</h2>
+      <ul class="schedule-list">
+        <li><span>7:30 PM</span><span>Doors Open</span></li>
+        <li><span>8:00 PM</span><span>First Performances</span></li>
+        <li><span>9:30 PM</span><span>Open Jam Session</span></li>
+        <li><span>10:00 PM</span><span>Closing Acts</span></li>
+      </ul>
+    </section>
+    <section class="sign-up" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Sign Up to Perform</h2>
+      <form id="signup-form" novalidate>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required minlength="2" />
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        
+        <label for="performance">Performance Type & Description</label>
+        <textarea id="performance" name="performance" rows="4" placeholder="E.g. Acoustic guitar cover, stand-up comedy" required minlength="10"></textarea>
+        
+        <button type="submit">Register</button>
+        <div class="thank-you" role="alert" id="thank-you-message">Thank you for signing up! We'll be in touch.</div>
+      </form>
+    </section>
+  </main>
+  <script>
+    const form = document.getElementById('signup-form');
+    const thankYouMessage = document.getElementById('thank-you-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simple validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Here you would usually send form data to a server or backend
+      // For this static site, we just show a thank you message
+      thankYouMessage.style.display = 'block';
+      form.reset();
+
+      // Hide the message after 5 seconds
+      setTimeout(() => {
+        thankYouMessage.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
+
